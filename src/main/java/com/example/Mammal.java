@@ -6,8 +6,8 @@ public interface Mammal extends Animal {
         return getKids(1);
     }
 
-    default int getKids(int kittensCount) {
-        return kittensCount;
+    default int getKids(int kidsCount) {
+        return kidsCount;
     }
 
 }
