@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertThrows;
 
 @RunWith(MockitoJUnitRunner.class)
 public class LionTest {
@@ -34,5 +35,13 @@ public class LionTest {
         Lion lion = new Lion("Самец", mammal);
         List<String> result = lion.getFood();
         assertEquals(eatList, result);
+    }
+
+    @Test
+    public void shouldNotCreateLionWithIncorrectSex() {
+        Exception exception = assertThrows(Exception.class, () -> {
+            new Lion("Произвольное значение", mammal);
+        });
+        assertEquals("Используйте допустимые значения пола животного - самец или самка", exception.getMessage());
     }
 }
